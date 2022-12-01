@@ -11,38 +11,78 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
+#include <stdio.h>
 
-void	overlap(char *dest, char *source, size_t len);
+int		lenght(int n);
+void	calc(char *ptr, int n, int sign, int counter);
+char	*checkmin(void);
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	char	*dest;
-	char	*source;
+	char	*ptr;
+	int		counter;
+	int		i;
+	int		sign;
 
+	sign = 1;
 	i = 0;
-	dest = (char *)dst;
-	source = (char *)src;
-	if (dst == NULL && src == NULL)
-		return (dest);
-	if (dest < source)
+	if (n < 0)
 	{
-		while (i < len)
-		{
-			dest[i] = source[i];
-			i++;
-		}
+		sign = -1;
+		n *= sign;
 	}
-	else
-		overlap(dest, source, len);
-	return (dest);
+	if (n == -2147483648)
+	{
+		ptr = checkmin();
+		return (ptr);
+	}
+	counter = lenght(n);
+	if (sign == -1)
+		counter++;
+	ptr = ft_calloc(counter + 1, 1);
+	if (!ptr)
+		return (NULL);
+	calc(ptr, n, sign, counter);
+	return (ptr);
 }
 
-void	overlap(char *dest, char *source, size_t len)
+int	lenght(int n)
 {
-	while (len > 0)
+	int		i;
+	int		counter;
+
+	i = 10;
+	counter = 1;
+	while (n >= 10)
 	{
-		dest[len - 1] = source[len - 1];
-		len--;
+		n = n / 10;
+		counter++;
 	}
+	return (counter);
+}
+
+void	calc(char *ptr, int n, int sign, int counter)
+{
+	int	i;
+
+	i = 0;
+	if (sign == -1)
+		ptr[i] = '-';
+	ptr[counter] = '\0';
+	counter--;
+	while (counter >= 0 && ptr[counter] != '-')
+	{
+		ptr[counter] = n % 10 + '0';
+		n /= 10;
+		counter--;
+	}
+}
+
+char	*checkmin(void)
+{
+	char	*ptr;
+
+	ptr = ft_strdup("-2147483648");
+	return (ptr);
 }

@@ -10,39 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	overlap(char *dest, char *source, size_t len);
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	char	*dest;
-	char	*source;
+	int	i;
 
 	i = 0;
-	dest = (char *)dst;
-	source = (char *)src;
-	if (dst == NULL && src == NULL)
-		return (dest);
-	if (dest < source)
+	while (s[i])
 	{
-		while (i < len)
-		{
-			dest[i] = source[i];
-			i++;
-		}
-	}
-	else
-		overlap(dest, source, len);
-	return (dest);
-}
-
-void	overlap(char *dest, char *source, size_t len)
-{
-	while (len > 0)
-	{
-		dest[len - 1] = source[len - 1];
-		len--;
+		write(fd, &s[i], 1);
+		i++;
 	}
 }

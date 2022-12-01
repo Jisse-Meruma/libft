@@ -11,38 +11,24 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	overlap(char *dest, char *source, size_t len);
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	char	*dest;
-	char	*source;
+	char	*ptr;
+	int		i;
 
 	i = 0;
-	dest = (char *)dst;
-	source = (char *)src;
-	if (dst == NULL && src == NULL)
-		return (dest);
-	if (dest < source)
+	if (!s || !f)
+		return (0);
+	ptr = ft_calloc(ft_strlen(s) + 1, 1);
+	if (!ptr)
+		return (0);
+	while (s[i])
 	{
-		while (i < len)
-		{
-			dest[i] = source[i];
-			i++;
-		}
+		ptr[i] = f(i, s[i]);
+		i++;
 	}
-	else
-		overlap(dest, source, len);
-	return (dest);
-}
-
-void	overlap(char *dest, char *source, size_t len)
-{
-	while (len > 0)
-	{
-		dest[len - 1] = source[len - 1];
-		len--;
-	}
+	ptr[i] = '\0';
+	return (ptr);
 }

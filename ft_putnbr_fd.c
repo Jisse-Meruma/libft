@@ -10,39 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	overlap(char *dest, char *source, size_t len);
+int	checks(int fd, int n);
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*dest;
-	char	*source;
+	char	ptr[100];
+	int		i;
 
 	i = 0;
-	dest = (char *)dst;
-	source = (char *)src;
-	if (dst == NULL && src == NULL)
-		return (dest);
-	if (dest < source)
+	if (checks(fd, n) == 1)
+		return ;
+	if (n < 0)
 	{
-		while (i < len)
-		{
-			dest[i] = source[i];
-			i++;
-		}
+		n *= -1;
+		write(fd, "-", 1);
 	}
-	else
-		overlap(dest, source, len);
-	return (dest);
+	while (n > 0)
+	{
+		ptr[i] = (n % 10) + '0';
+		n /= 10;
+		i++;
+	}
+	i--;
+	while (i >= 0)
+	{
+		write(fd, &ptr[i], 1);
+		i--;
+	}
 }
 
-void	overlap(char *dest, char *source, size_t len)
+int	checks(int fd, int n)
 {
-	while (len > 0)
+	if (n == -2147483648)
 	{
-		dest[len - 1] = source[len - 1];
-		len--;
+		write(fd, "-2147483648", 11);
+		return (1);
 	}
+	if (n == 0)
+	{
+		write(fd, "0", 1);
+		return (1);
+	}
+	return (0);
 }

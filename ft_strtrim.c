@@ -12,57 +12,61 @@
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
-int	counter(char const *s1, char const *set, int i, int j);
+int	begin(char const *s1, char const *set, int total_set);
+int	eind(char const *s1, char const *set, int total_s1, int total_set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
-	int		total;
 	char	*ptr;
-	int		k;
+	int		skip1;
+	int		skip2;
 
-	k = 0;
-	i = 0;
-	j = 0;
-	total = ft_strlen(s1) + counter(s1, set, i, j);
-	ptr = (char *)malloc(total + 1);
-	while (s1[i])
+	skip1 = begin(s1, set, ft_strlen(set));
+	skip2 = eind(s1, set, ft_strlen(s1), ft_strlen(set));
+	if (skip1 == ft_strlen(s1))
 	{
-		while (set[j])
-		{
-			if (s1[i] != set[j])
-			{
-				ptr[k] = s1[i];
-				break;
-			}
-			j++;
-		}
-		k++;
-		i++;
+		ptr = ft_strdup("");
+		if (!ptr)
+			return (NULL);
+		return (ptr);
 	}
-	ptr[k] = '\0';
+	ptr = (char *)ft_calloc((skip2 - skip1) + 1, 1);
+	if (!ptr)
+		return (NULL);
+	ft_strlcpy(ptr, (char *)s1 + skip1, (skip2 - skip1) + 1);
 	return (ptr);
 }
 
-int	counter(char const *s1, char const *set, int i, int j)
+int	begin(char const *s1, char const *set, int total_set)
 {
-	int	counter;
+	int		i;
+	char	*p;
 
-	counter = 0;
+	i = 0;
 	while (s1[i])
 	{
-		while (set[j])
-		{
-			if (s1[i] == set[j])
-			{
-				counter--;
-				break;
-			}
-			j++;
-		}
+		p = (char *)ft_memchr(set, s1[i], total_set);
+		if (!p)
+			break ;
 		i++;
 	}
-	return (counter);
+	return (i);
+}
+
+int	eind(char const *s1, char const *set, int total_s1, int total_set)
+{
+	int		i;
+	char	*p;
+
+	i = total_s1 - 1;
+	while (total_s1 > 0)
+	{
+		p = (char *)ft_memchr(set, s1[i], total_set);
+		if (!p)
+			break ;
+		i--;
+	}
+	return (i + 1);
 }
