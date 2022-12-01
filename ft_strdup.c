@@ -10,12 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char c);
+#include <stdlib.h>
 
-int	ft_isascii(char c)
+char	*ft_strdup(const char *s1)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	int		i;
+	char	*ptr;
+
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	ptr = (char *)malloc(i + 1);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

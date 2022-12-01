@@ -33,12 +33,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		i = len - 1;
-		while (i >= 0)
+		i = len;
+		while (i > 0)
 		{
-			dest[i] = source[i];
+			dest[i - 1] = source[i - 1];
 			i--;
 		}
 	}
-	return (dst);
+	return (dest);
 }

@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			cp = i;
 			while (haystack[++i - 1] == needle[++j - 1])
 				;
-			if (needle[j] == '\0')
+			if (needle[j - 1] == '\0' && i - 1 < len)
 				return (ptr + cp);
 			j = 0;
 			i = cp;

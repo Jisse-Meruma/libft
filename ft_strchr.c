@@ -10,21 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int		i;
-	int		cp;
 	char	*ptr;
 
-	i = -1;
-	cp = -1;
+	i = 0;
 	ptr = (char *)s;
-	while (s[i++] != '\0')
+	while (ptr[i] != '\0')
 	{
-		if (s[i] == c)
-			return (ptr += cp);
+		if (ptr[i] == c)
+			return (ptr += i);
+		i++;
 	}
+	if (ptr[i] == c)
+		return (ptr += i);
 	return (0);
 }

@@ -10,12 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char c);
+#include <stdlib.h>
 
-int	ft_isascii(char c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	char	fill;
+	char	*ptr;
+	int		i;
+
+	i = 0;
+	fill = 0;
+	ptr = malloc(count * size);
+	while (count > 0)
+	{
+		ptr[i] = fill;
+		count--;
+		i++;
+	}
+	return ((void *)ptr);
 }

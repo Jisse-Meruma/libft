@@ -28,7 +28,7 @@ int	ft_strlcat(char *dest, const char *src, size_t dstsize)
 		j++;
 	sum = i + j;
 	i = 0;
-	if (dstsize > i)
+	if (dstsize > j)
 	{
 		while (src[i] != '\0' && j < (dstsize - 1))
 		{
@@ -36,7 +36,8 @@ int	ft_strlcat(char *dest, const char *src, size_t dstsize)
 			i++;
 			j++;
 		}
+		if (dstsize > 2)
+			dest[j] = '\0';
 	}
-	dest[j] = '\0';
 	return (sum);
 }

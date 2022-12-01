@@ -10,25 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *src, const char *str, int a);
+#include <stdlib.h>
 
-int	ft_strncmp(const char *src, const char *str, int a)
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	diff;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	while ((src[i] != '\0' || str[i] != '\0') && (i < a))
+	if (n > 0)
 	{
-		if (src[i] != str[i])
+		while (str1[i] != '\0' && str2[i] != '\0')
 		{
-			diff = src[i] - str[i];
-			if (diff < 0)
-				return (-1);
-			if (diff > 0)
-				return (1);
+			if (i >= (n - 1))
+				return (str1[i] - str2[i]);
+			if (str1[i] != str2[i])
+				return (str1[i] - str2[i]);
+			i++;
 		}
-		i++;
+		return (str1[i] - str2[i]);
 	}
 	return (0);
 }
