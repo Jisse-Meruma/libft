@@ -16,16 +16,18 @@ char	*ft_strchr(const char *s, int c)
 {
 	int		i;
 	char	*ptr;
+	char	betterc;
 
 	i = 0;
 	ptr = (char *)s;
+	betterc = (char)c;
 	while (ptr[i] != '\0')
 	{
-		if (ptr[i] == c)
+		if (ptr[i] == betterc)
 			return (ptr += i);
 		i++;
 	}
-	if (ptr[i] == c)
+	if (ptr[i] == betterc)
 		return (ptr += i);
 	return (0);
 }

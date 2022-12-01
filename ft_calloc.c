@@ -14,21 +14,19 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	fill;
 	char	*ptr;
 	int		i;
+	int		total;
 
 	i = 0;
-	fill = 0;
-	if (size == 0)
-		return (NULL);
-	ptr = malloc(count * size);
+	total = count * size;
+	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
-	while (count > 0)
+	while (total > 0)
 	{
-		ptr[i] = fill;
-		count--;
+		ptr[i] = '\0';
+		total--;
 		i++;
 	}
 	return ((void *)ptr);

@@ -10,28 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c);
+#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*creation(char const *s, unsigned int start, size_t len);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	int		cp;
+	size_t	i;
 	char	*ptr;
-	char	betterc;
+
+	i = ft_strlen(s);
+	if (i < start)
+		return (ft_strdup(""));
+	ptr = creation(s, start, len);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s[start] && i < len)
+	{
+		ptr[i] = s[start];
+		i++;
+		start++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+char	*creation(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*ptr;
 
 	i = 0;
-	cp = -1;
-	ptr = (char *)s;
-	betterc = (char)c;
-	while (ptr[i] != '\0')
+	while (s[start] && i < len)
 	{
-		if (ptr[i] == betterc)
-			cp = i;
+		start++;
 		i++;
 	}
-	if (ptr[i] == betterc)
-		cp = i;
-	if (cp != -1)
-		return (ptr += cp);
-	return (0);
+	ptr = (char *)malloc(i + 1);
+	return (ptr);
 }
