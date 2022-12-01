@@ -41,11 +41,11 @@ SRC 	:=	ft_atoi.c 		\
 			ft_putnbr_fd.c 	\
 			ft_split.c 		\
 			\
-			printf/src/basetoa.c		\
-			printf/src/ft_printf.c		\
-			printf/src/functions.c		\
-			printf/src/hexfunctions.c	\
-			printf/src/printf_utils.c	\
+			ft_printf/src/basetoa.c			\
+			ft_printf/src/ft_printf.c		\
+			ft_printf/src/functions.c		\
+			ft_printf/src/hexfunctions.c	\
+			ft_printf/src/printf_utils.c	\
 			\
 			get_next_line/get_next_line.c		\
 			get_next_line/get_next_line_utils.c	\
