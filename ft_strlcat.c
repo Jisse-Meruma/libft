@@ -12,8 +12,6 @@
 
 #include <stdlib.h>
 
-int	ft_strlcat(char *dest, const char *src, size_t dstsize);
-
 int	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
 	size_t	i;
