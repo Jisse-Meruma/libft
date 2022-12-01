@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: jmeruma <marvin@codam.nl>                    +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/03 15:05:51 by jmeruma       #+#    #+#                 */
-/*   Updated: 2022/10/03 15:05:53 by jmeruma       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
+/*   Updated: 2022/11/18 16:52:15 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,9 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *));
+
+char	*get_next_line(int fd);
+
+int		ft_printf(char const *format, ...);
 
 #endif

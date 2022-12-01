@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: jmeruma <marvin@codam.nl>                    +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/03 15:05:51 by jmeruma       #+#    #+#                 */
-/*   Updated: 2022/10/03 15:05:53 by jmeruma       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
+/*   Updated: 2022/11/18 10:51:57 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	counter = lenght(n);
 	if (sign == -1)
 		counter++;
-	ptr = ft_calloc(counter + 1, 1);
+	ptr = ft_calloc(counter + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
 	calc(ptr, n, sign, counter);
