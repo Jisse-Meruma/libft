@@ -13,9 +13,9 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int		word_count(char const *s, char c, int len_s1);
-int		split_creation(char const *s, char c, char **ptr, int w_count);
-int		substring_len(char const *s, char c, int len_s1, int i);
+static int	word_count(char const *s, char c, int len_s1);
+static int	split_creation(char const *s, char c, char **ptr, int w_count);
+static int	substring_len(char const *s, char c, int len_s1, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -28,12 +28,7 @@ char	**ft_split(char const *s, char c)
 	len_s1 = ft_strlen(s);
 	w_count = word_count(s, c, len_s1);
 	if (w_count == 0)
-	{
-		ptr = (char **)ft_calloc(1, sizeof(char *));
-		if (!ptr)
-			return (NULL);
-		return (ptr);
-	}
+		return (NULL);
 	ptr = (char **)ft_calloc(w_count + 1, sizeof(char *));
 	if (!ptr)
 		return (NULL);
@@ -42,7 +37,7 @@ char	**ft_split(char const *s, char c)
 	return (ptr);
 }
 
-int	word_count(char const *s, char c, int len_s1)
+static int	word_count(char const *s, char c, int len_s1)
 {
 	int	i;
 	int	word;
@@ -62,7 +57,7 @@ int	word_count(char const *s, char c, int len_s1)
 	return (word);
 }
 
-int	split_creation(char const *s, char c, char **ptr, int w_count)
+static int	split_creation(char const *s, char c, char **ptr, int w_count)
 {
 	int	len_s1;
 	int	len;
@@ -87,7 +82,7 @@ int	split_creation(char const *s, char c, char **ptr, int w_count)
 	return (0);
 }
 
-int	substring_len(char const *s, char c, int len_s1, int i)
+static int	substring_len(char const *s, char c, int len_s1, int i)
 {
 	int	len;
 

@@ -28,10 +28,10 @@ t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		node->next = ft_lstnew(f(lst->content));
+		if (!node->next)
+			ft_lstclear(list, del);
 		node = node->next;
 		lst = lst->next;
 	}
-	list = &lst;
-	ft_lstclear(list, del);
 	return (start);
 }

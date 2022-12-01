@@ -13,20 +13,19 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int		ft_scan(const char *haystack, const char *needle, size_t len, size_t i);
+static int	ft_scan(const char *haystack, const char *needle,
+				size_t len, size_t i);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	char	*ptr;
 	size_t	j;
-	int		needle_len;
 
 	i = 0;
 	j = 0;
-	needle_len = ft_strlen(needle);
 	ptr = (char *)haystack;
-	if (needle_len == 0 || needle == haystack)
+	if (needle[i] == '\0' || needle == haystack)
 		return (ptr);
 	while (haystack[i] != '\0' && i < len)
 	{
@@ -40,7 +39,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (0);
 }
 
-int	ft_scan(const char *haystack, const char *needle, size_t len, size_t i)
+static int	ft_scan(const char *haystack, const char *needle,
+					size_t len, size_t i)
 {
 	size_t	j;
 

@@ -14,9 +14,9 @@
 #include "libft.h"
 #include <stdio.h>
 
-int		lenght(int n);
-void	calc(char *ptr, int n, int sign, int counter);
-char	*checkmin(void);
+static int	lenght(int n);
+static void	calc(char *ptr, int n, int sign, int counter);
+static char	*checkmin(void);
 
 char	*ft_itoa(int n)
 {
@@ -47,7 +47,7 @@ char	*ft_itoa(int n)
 	return (ptr);
 }
 
-int	lenght(int n)
+static int	lenght(int n)
 {
 	int		i;
 	int		counter;
@@ -62,7 +62,7 @@ int	lenght(int n)
 	return (counter);
 }
 
-void	calc(char *ptr, int n, int sign, int counter)
+static void	calc(char *ptr, int n, int sign, int counter)
 {
 	int	i;
 
@@ -79,7 +79,7 @@ void	calc(char *ptr, int n, int sign, int counter)
 	}
 }
 
-char	*checkmin(void)
+static char	*checkmin(void)
 {
 	char	*ptr;
 

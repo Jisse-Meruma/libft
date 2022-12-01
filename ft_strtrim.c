@@ -14,8 +14,8 @@
 #include "libft.h"
 #include <stdio.h>
 
-int	begin(char const *s1, char const *set, int total_set);
-int	eind(char const *s1, char const *set, int total_s1, int total_set);
+static int	begin(char const *s1, char const *set, int total_set);
+static int	end(char const *s1, char const *set, int total_s1, int total_set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		skip2;
 
 	skip1 = begin(s1, set, ft_strlen(set));
-	skip2 = eind(s1, set, ft_strlen(s1), ft_strlen(set));
+	skip2 = end(s1, set, ft_strlen(s1), ft_strlen(set));
 	if (skip1 == ft_strlen(s1))
 	{
 		ptr = ft_strdup("");
@@ -39,7 +39,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ptr);
 }
 
-int	begin(char const *s1, char const *set, int total_set)
+static int	begin(char const *s1, char const *set, int total_set)
 {
 	int		i;
 	char	*p;
@@ -55,7 +55,7 @@ int	begin(char const *s1, char const *set, int total_set)
 	return (i);
 }
 
-int	eind(char const *s1, char const *set, int total_s1, int total_set)
+static int	end(char const *s1, char const *set, int total_s1, int total_set)
 {
 	int		i;
 	char	*p;

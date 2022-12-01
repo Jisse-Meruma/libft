@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-void	overlap(char *dest, char *source, size_t len);
+static void	overlap(char *dest, char *source, size_t len);
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -38,7 +38,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (dest);
 }
 
-void	overlap(char *dest, char *source, size_t len)
+static void	overlap(char *dest, char *source, size_t len)
 {
 	while (len > 0)
 	{

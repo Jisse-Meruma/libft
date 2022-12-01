@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	checks(int fd, int n);
+static int	checks(int fd, int n);
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -41,7 +41,8 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-int	checks(int fd, int n)
+static int	checks(int fd, int n)
+
 {
 	if (n == -2147483648)
 	{
