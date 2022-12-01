@@ -41,10 +41,10 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-	
+
 fclean: 
 	$(RM) $(NAME) $(OBJ)
 
 re: fclean all
 
-.PHONY: clean all fclean re oclean
+.PHONY: clean all fclean re

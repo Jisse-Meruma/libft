@@ -20,7 +20,11 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	fill = 0;
+	if (size == 0)
+		return (NULL);
 	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
 	while (count > 0)
 	{
 		ptr[i] = fill;
