@@ -55,16 +55,16 @@ BON_SRC :=	ft_lstnew_bonus.c \
 OBJ		:=	$(SRC:.c=.o)
 BON_OBJ :=  $(BON_SRC:_bonus.c=_bonus.o)
 
-all: $(NAME)($(OBJ))
+all: $(NAME)
 
 bonus: $(OBJ) $(BON_OBJ)
-	ar -rc $(NAME) $^
+	@ar -rc $(NAME) $^
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(NAME): $(OBJ)
-	ar -rc $(NAME) $<
+	@ar -rc $(NAME) $^
 
 clean:
 	$(RM) $(OBJ) $(BON_OBJ)
