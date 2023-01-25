@@ -6,14 +6,14 @@
 /*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/01/25 14:33:15 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/01/25 14:45:55 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strjoin_free(char const *s1, char const *s2)
+char	*ft_strjoin_free(char *s1, char const *s2)
 {
 	int		total;
 	char	*ptr;
