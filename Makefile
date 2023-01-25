@@ -40,6 +40,11 @@ SRC 	:=	ft_atoi.c 		\
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c 	\
 			ft_split.c 		\
+			ft_atoh.c		\
+			ft_atol.c		\
+			ft_atoi_overflow.c 				\
+			ft_2d_arrlen.c					\
+			ft_2dfree.c						\
 			\
 			ft_printf/src/basetoa.c			\
 			ft_printf/src/ft_printf.c		\
@@ -72,16 +77,16 @@ bonus: $(OBJ) $(BON_OBJ)
 	@ar -rc $(NAME) $^
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(NAME): $(OBJ)
 	@ar -rc $(NAME) $^
 
 clean:
-	$(RM) $(OBJ) $(BON_OBJ)
+	@$(RM) $(OBJ) $(BON_OBJ)
 
 fclean: 
-	$(RM) $(NAME) $(OBJ) $(BON_OBJ)
+	@$(RM) $(NAME) $(OBJ) $(BON_OBJ)
 
 re: fclean all
 

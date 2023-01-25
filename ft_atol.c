@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/01/20 14:55:46 by jmeruma          ###   ########.fr       */
+/*   Created: 2023/01/12 16:53:56 by jmeruma           #+#    #+#             */
+/*   Updated: 2023/01/20 18:17:52 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *nb)
 {
-	int	i;
-	int	sign;
-	int	numb;
+	int		i;
+	int		x;
+	long	numb;
 
 	i = 0;
-	sign = 1;
+	x = 1;
 	numb = 0;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
-		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+	while (nb[i] == ' ' || nb[i] == '\f' || nb[i] == '\n'
+		|| nb[i] == '\r' || nb[i] == '\t' || nb[i] == '\v')
 			i++;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '+' || str[i] == '-')
+	if (nb[i] == '-')
+		x = -1;
+	if (nb[i] == '+' || nb[i] == '-')
 		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (nb[i] >= '0' && nb[i] <= '9')
 	{
-		numb += str[i] - '0';
-		if (str[i + 1] >= '0' && str[i + 1] <= '9')
+		numb += nb[i] - '0';
+		if (nb[i + 1] >= '0' && nb[i + 1] <= '9')
 			numb *= 10;
 		i++;
 	}
-	numb *= sign;
+	numb *= x;
 	return (numb);
 }
