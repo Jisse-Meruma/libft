@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_2dfree.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisse <jisse@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:19:36 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/01/27 11:03:49 by jisse            ###   ########.fr       */
+/*   Updated: 2023/01/29 15:23:20 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_2dfree(char **p_arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (p_arr[i] != NULL)
