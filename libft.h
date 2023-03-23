@@ -6,7 +6,7 @@
 /*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/01/25 14:59:27 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/03/23 12:10:42 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			ft_isalnum(int c);
 int			ft_isalpha(int c);
 int			ft_isascii(int c);
 int			ft_isdigit(int c);
+int			ft_isspace(int c);
 int			ft_isprint(int c);
 int			ft_lstsize(t_list *lst);
 int			ft_strlen(const char *s);
@@ -43,6 +44,7 @@ char		*ft_strdup(const char *s1);
 char		*ft_strchr(const char *s, int c);
 char		**ft_split(char const *s, char c);
 char		*ft_strrchr(const char *s, int c);
+char		**ft_2d_add(char *arr[], char *str);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strjoin_free(char *s1, char const *s2);
