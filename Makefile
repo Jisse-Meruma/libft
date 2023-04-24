@@ -49,6 +49,7 @@ SRC 	:=	ft_atoi.c 		\
 			ft_strjoin_free.c				\
 			ft_2d_add.c						\
 			ft_basetoa.c					\
+			ft_string_injection.c			\
 			\
 			ft_printf/src/put_basetoa.c		\
 			ft_printf/src/ft_printf.c		\

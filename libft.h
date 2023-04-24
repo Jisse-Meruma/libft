@@ -6,7 +6,7 @@
 /*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/04/11 16:09:01 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/04/24 15:18:56 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char		**ft_2d_add(char *arr[], char *str);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strjoin_free(char *s1, char const *s2);
+char		*ft_string_injection(char *line, int index, char *str);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_basetoa(const char *baseset, int base, unsigned long nb);
