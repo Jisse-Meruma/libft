@@ -6,7 +6,7 @@
 /*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:05:51 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/03/19 16:29:29 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/04/25 14:35:41 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ char	*ft_strjoin_free(char *s1, char const *s2)
 	int		total;
 	char	*ptr;
 
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s2 && s1)
+		return (free(s1), ft_strdup(s1));
 	total = ft_strlen(s1) + ft_strlen(s2);
 	ptr = (char *)malloc(total + 1);
 	if (!ptr)
