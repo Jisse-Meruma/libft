@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_basetoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jisse <jisse@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 16:00:55 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/04/11 16:09:32 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/05/11 12:17:24 by jisse            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	checks(unsigned long nb)
 	return (0);
 }
 
-char	*strcreation(unsigned long nb, int base)
+static char	*strcreation(unsigned long nb, int base)
 {
 	int		len;
 	char	*ptr;
@@ -40,13 +40,11 @@ char	*strcreation(unsigned long nb, int base)
 
 char	*ft_basetoa(const char *baseset, int base, unsigned long nb)
 {
-	char	*ptr;
-	int		set;
 	int		i;
-	int		counter;
+	int		set;
+	char	*ptr;
 
 	i = 0;
-	counter = 0;
 	if (checks(nb) == 1)
 	{
 		ptr = ft_strdup("0");
