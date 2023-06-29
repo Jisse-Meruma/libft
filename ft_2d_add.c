@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_2d_add.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jisse <jisse@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:45:17 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/06/15 13:41:45 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/06/29 14:26:26 by jisse            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ static char	**empty_arr(char *str)
 {
 	char	**new_arr;
 
-	new_arr = malloc(1 * sizeof(char *));
+	new_arr = malloc(2 * sizeof(char *));
 	if (!new_arr)
 		return (NULL);
 	new_arr[0] = ft_strdup(str);
+	new_arr[1] = NULL;
 	return (new_arr);
 }
 
