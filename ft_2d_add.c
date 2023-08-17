@@ -6,11 +6,12 @@
 /*   By: jmeruma <jmeruma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:45:17 by jmeruma           #+#    #+#             */
-/*   Updated: 2023/08/11 15:30:02 by jmeruma          ###   ########.fr       */
+/*   Updated: 2023/08/17 14:55:46 by jmeruma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char	**empty_arr(char *str)
 {
@@ -60,6 +61,6 @@ char	**ft_2d_add(char *arr[], char *str)
 	}
 	new_arr[w_index] = ft_strdup(str);
 	if (new_arr[w_index] == NULL)
-		free_arr(new_arr, w_index - 1);
+		return (free_arr(new_arr, w_index - 1), NULL);
 	return (new_arr);
 }
